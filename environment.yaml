@@ -229,9 +229,6 @@ dependencies:
       - opt-einsum==3.2.0
       - pip==23.3.2
       - protobuf==3.11.3
-      - reinvent-chemistry==0.0.50
-      - reinvent-models==0.0.15rc1
-      - reinvent-scoring==0.0.73
       - tensorboard==1.15.0
       - tensorflow==1.15.2
       - tensorflow-estimator==1.15.1
