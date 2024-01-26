@@ -1,1 +1,2 @@
 The model is derived from Reinvent (https://github.com/MolecularAI/Reinvent) Thanks a lot for their sharing.
+If you want to do scaffold shape matching, you need to include a reference folder in the commit directory. You can refer to the folder we provided. (Make sure the names are the same)
