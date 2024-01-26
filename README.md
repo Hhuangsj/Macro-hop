@@ -13,7 +13,7 @@ Pictures
 $ conda env create -f environment.yaml
 $ conda activate Macro-hop
 $ cd reinvent_functions
-$ pip install 
+$ pip install reinvent_function-0.0.8.1-py3-none-any.whl
 ```
 
 ## Usage
