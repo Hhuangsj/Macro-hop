@@ -1,0 +1,139 @@
+{
+    "version": 3,
+    "model_type": "link_invent",
+    "run_type": "reinforcement_learning",
+    "logging": {
+        "sender": "",
+        "recipient": "local",
+        "logging_path": "/home/hsj/workstations/hoppings/Macro-invent/experiment/Macro-INVENT_PDGFR-12/progress.log",
+        "result_folder": "/home/hsj/workstations/hoppings/Macro-invent/experiment/Macro-INVENT_PDGFR-12/results",
+        "job_name": "Macro-INVENT RL Demo",
+        "job_id": "N/A"
+    },
+    "parameters": {
+        "actor": "/data/userdata/hsj/workstations/hoppings/Macro-invent/experiment/../models/linkinvent.prior",
+        "critic": "/data/userdata/hsj/workstations/hoppings/Macro-invent/experiment/../models/linkinvent.prior",
+        "warheads": [
+            "C1(NC2=CC=CC3=C2)=NC=C4C(C(N5CCC(NCCCO3)CC5)=CC=C4)=N1|[*]OCCCNC1CCN([*])CC1"
+        ],
+        "n_steps": 200,
+        "learning_rate": 0.0001,
+        "batch_size": 128,
+        "randomize_warheads": true,
+        "learning_strategy": {
+            "name": "dap",
+            "parameters": {
+                "sigma": 120
+            }
+        },
+        "scoring_strategy": {
+            "name": "link_invent",
+            "diversity_filter": {
+                "name": "IdenticalMurckoScaffold"
+            },
+            "scoring_function": {
+                "name": "custom_product",
+                "parallel": false,
+                "parameters": [
+                    {
+                        "weight": 1,
+                        "component_type": "linker_num_hbd",
+                        "name": "Linker Num HBD",
+                        "specific_parameters": {
+                            "transformation": {
+                                "high": 1,
+                                "low": 0,
+                                "transformation_type": "step"
+                            }
+                        }
+                    },
+                    {
+                        "weight": 1,
+                        "component_type": "linker_num_hba",
+                        "name": "Linker Num HBA",
+                        "specific_parameters": {
+                            "transformation": {
+                                "high": 4,
+                                "low": 2,
+                                "transformation_type": "step"
+                            }
+                        }
+                    },
+                    {
+                        "weight": 1,
+                        "component_type": "linker_num_aromatic_rings",
+                        "name": "Linker Num Aromatic Rings",
+                        "specific_parameters": {
+                            "transformation": {
+                                "high": 4,
+                                "low": 2,
+                                "transformation_type": "step"
+                            }
+                        }
+                    },
+                    {
+                        "component_type": "matching_substructure",
+                        "name": "Matching substructure1",
+                        "weight": 1,
+                        "specific_parameters": {
+                            "smiles": [
+                                "[#7]:[#6]-[#7H]"
+                            ],
+                            "transformation": {
+                                "high": 1,
+                                "low": 1,
+                                "transformation_type": "step"
+                            }
+                        }
+                    },
+                    {
+                        "component_type": "linker_mol_weight",
+                        "name": "linker_mol_weight",
+                        "weight": 1,
+                        "specific_parameters": {
+                            "transformation": {
+                                "high": 250,
+                                "low": 200,
+                                "transformation_type": "step"
+                            }
+                        }
+                    },
+                    {
+                        "component_type": "scaffold_custom_alerts",
+                        "name": "linker_custom_alerts",
+                        "weight": 1,
+                        "specific_parameters": {
+                            "transformation": {
+                                "high": 0,
+                                "low": 0,
+                                "transformation_type": "step"
+                            }
+                        }
+                    },
+                    {
+                        "weight": 1,
+                        "component_type": "scaffold_ring_score",
+                        "name": "Scaffold Ring Score",
+                        "specific_parameters": {
+                            "transformation": {
+                                "high": 8,
+                                "low": 7,
+                                "transformation_type": "step"
+                            }
+                        }
+                    },
+                    {
+                        "component_type": "scaffold_rocs_score",
+                        "name": "linker_rocs_score",
+                        "weight": 0.5,
+                        "specific_parameters": {
+                            "transformation": {
+                                "transformation_type": "no_transformation"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}
