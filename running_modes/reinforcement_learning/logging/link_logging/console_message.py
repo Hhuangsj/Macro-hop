@@ -70,16 +70,19 @@ class ConsoleMessage:
                     indexs_Cl.append(neighbors[0].GetIdx())
 
                 mw = Chem.RWMol(mol)
-                smil = Chem.MolToSmiles(mw)
+                smile = Chem.MolToSmiles(mw)
                 #print(smil)
-                mw.AddBond(indexs_Cl[2], indexs_Cl[3], Chem.BondType.SINGLE)
-                m_edit = mw.GetMol()
+                try:
+                    mw.AddBond(indexs_Cl[2], indexs_Cl[3], Chem.BondType.SINGLE)
+                    m_edit = mw.GetMol()
 
-                patt1 = Chem.MolFromSmarts('[CD2](-[#17])')
-                patt2 = Chem.MolFromSmarts('Cl')
-                m = Chem.DeleteSubstructs(m_edit, patt1)
-                macro = Chem.DeleteSubstructs(m, patt2)
-                smile = Chem.MolToSmiles(macro)
+                    patt1 = Chem.MolFromSmarts('[CD2](-[#17])')
+                    patt2 = Chem.MolFromSmarts('Cl')
+                    m = Chem.DeleteSubstructs(m_edit, patt1)
+                    macro = Chem.DeleteSubstructs(m, patt2)
+                    smile = Chem.MolToSmiles(macro)
+                except:
+                    pass    
                 #print(smile)
                 smiles_macro.append(smile)
 

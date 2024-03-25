@@ -87,17 +87,20 @@ class BaseReinforcementLogger(ABC):
                     else:
                         indexs_Cl.append(neighbors[1].GetIdx() - 1)
                         indexs_Cl.append(neighbors[0].GetIdx())
-                    mw = Chem.RWMol(mol)
-                    mw.AddBond(indexs_Cl[2], indexs_Cl[3], Chem.BondType.SINGLE)
-                    m_edit = mw.GetMol()
-                    patt1 = Chem.MolFromSmarts('[CD2](-[#17])')
-                    patt2 = Chem.MolFromSmarts('Cl')
-                    m = Chem.DeleteSubstructs(m_edit, patt1)
-                    macro = Chem.DeleteSubstructs(m, patt2)
-                    smile = Chem.MolToSmiles(macro)
-                    smiles_macro.append(smile)
+                    try:
 
 
+                        mw = Chem.RWMol(mol)
+                        mw.AddBond(indexs_Cl[2], indexs_Cl[3], Chem.BondType.SINGLE)
+                        m_edit = mw.GetMol()
+                        patt1 = Chem.MolFromSmarts('[CD2](-[#17])')
+                        patt2 = Chem.MolFromSmarts('Cl')
+                        m = Chem.DeleteSubstructs(m_edit, patt1)
+                        macro = Chem.DeleteSubstructs(m, patt2)
+                        smile = Chem.MolToSmiles(macro)
+                        smiles_macro.append(smile)
+                    except:
+                        dele_idxs.append(idx) 
 
                 elif len(indexs_F) == 2:
                     neighbor1 = atoms[indexs_F[0]].GetNeighbors()
