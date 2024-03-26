@@ -1,5 +1,5 @@
 # Macro-hop
-The code was built based on Reinvent (https://github.com/MolecularAI/Reinvent) Thanks a lot for their sharing.
+In order to be able to directly scaffold hopping of macrocyclic compounds, we constructed Macro-hop models based on Reinvent (https://github.com/MolecularAI/Reinvent). It allows for direct optimization of macrocyclic compounds by setting a scoring function and generates macrocyclic molecules with a specified number of ring atoms.
 
 ![](pictures/Macro-hop.png)
 
