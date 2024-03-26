@@ -99,18 +99,6 @@
                         }
                     },
                     {
-                        "component_type": "scaffold_custom_alerts",
-                        "name": "linker_custom_alerts",
-                        "weight": 1,
-                        "specific_parameters": {
-                            "transformation": {
-                                "high": 0,
-                                "low": 0,
-                                "transformation_type": "step"
-                            }
-                        }
-                    },
-                    {
                         "weight": 1,
                         "component_type": "scaffold_ring_score",
                         "name": "Scaffold Ring Score",
