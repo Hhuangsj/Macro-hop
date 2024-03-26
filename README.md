@@ -20,8 +20,6 @@ $ pip install reinvent_function-0.0.8.1-py3-none-any.whl
 - Cuda-enabled GPU
 - Linux
 
-## Analyse the results
+## Usage
+Running each example results in a template file; there are templates for many running modes. Each running mode can be executed by python input.py some_running_mode.json after enabling the environment.
 
-1. tensorboard --logdir "progress.log"
-
-    progress.log is the "logging_path" in template.json
