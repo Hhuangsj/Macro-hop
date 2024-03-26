@@ -16,6 +16,9 @@ $ cd reinvent_functions
 $ pip install reinvent_function-0.0.8.1-py3-none-any.whl
 ```
 
+### System Requirements
+- Cuda-enabled GPU
+- Linux
 
 ## Analyse the results
 
