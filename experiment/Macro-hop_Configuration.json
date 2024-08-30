@@ -11,8 +11,8 @@
         "job_id": "N/A"
     },
     "parameters": {
-        "actor": "/data/userdata/hsj/workstations/hoppings/Macro-invent/experiment/../models/linkinvent.prior",
-        "critic": "/data/userdata/hsj/workstations/hoppings/Macro-invent/experiment/../models/linkinvent.prior",
+        "actor": "/data/userdata/hsj/workstations/hoppings/Macro-invent/experiment/../models/macro-hop.ckpt",
+        "critic": "/data/userdata/hsj/workstations/hoppings/Macro-invent/experiment/../models/macro-hop.ckpt",
         "warheads": [
             "C1(NC2=CC=CC3=C2)=NC=C4C(C(N5CCC(NCCCO3)CC5)=CC=C4)=N1|[*]OCCCNC1CCN([*])CC1"
         ],
